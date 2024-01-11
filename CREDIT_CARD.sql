@@ -144,5 +144,7 @@ FROM cc_transactions.cc
 )
 SELECT city , DATEDIFF(min(date),max(date)) AS diff from trans_500
 WHERE rn = 1 OR rn = 500
-GROUP BY city;
+GROUP BY city
+HAVING COUNT(*) = 2
+ORDER BY diff;
 
